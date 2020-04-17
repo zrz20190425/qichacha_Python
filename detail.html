@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <link rel="stylesheet" href="/material/theme/mobile/css/company_detail.css?time=1586846142" type="text/css" />
+    <div>
+        <script type="text/javascript">
+
+            var jcompanykey;
+
+            var jpersonid;
+            var jpersonname;
+            var jindex;
+
+            var isWeixn;
+            var isAndroid;
+            var isiOS;
+            var timer;
+
+
+            jcompanykey = 'e74160e6ad4685a9a9ea61bdf1b96490';
+
+
+            $(function () {
+                var u = navigator.userAgent, app = navigator.appVersion;
+                isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器 
+                isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端   
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                    isWeixn = true;
+                } else {
+                    isWeixn = false;
+                }
+
+                if (isAndroid) {
+                    var jumpUrl;
+                    if (jcompanykey) {
+                        jumpUrl = 'qichacha://com.android.icredit/c?id=' + jcompanykey;
+                    } else if (jpersonid) {
+                        jumpUrl = 'qichacha://com.android.icredit/p?id=' + jpersonid + '&name=' + jpersonname;
+                    } else {
+                        jumpUrl = 'qichacha://com.android.icredit/';
+                    }
+                    $('#appBtn').attr('href', jumpUrl);
+                    $('#appBtn2').attr('href', jumpUrl);
+                }
+                firstJump();
+            })
+
+            function firstJump() {
+                if (jcompanykey) {
+                    if (isAndroid) {
+                        location.href = 'qichacha://com.android.icredit/c?id=' + jcompanykey;
+                    } else if (isiOS) {
+                        //location.href='http://mob.qichacha.com/app/company.html?back=1&unique='+jcompanykey;
+                    }
+                } else if (jpersonid) {
+                    if (isAndroid) {
+                        location.href = 'qichacha://com.android.icredit/p?id=' + jpersonid + '&name=' + jpersonname;
+                    } else if (isiOS) {
+                        //location.href='http://mob.qichacha.com/app/boss.html?back=1&personID='+jpersonid+'&name='+jpersonname;
+                    }
+                } else if (jindex) {
+                    if (isAndroid) {
+                        location.href = 'qichacha://com.android.icredit/';
+                    } else if (isiOS) {
+                        location.href = 'qichacha://';
+                    }
+                }
+            }
+
+            function openApp() {
+                if (isWeixn) {
+                    alert('请从浏览器中打开');
+                } else {
+                    if (isiOS) {
+                        var jumpUrl;
+                        if (jcompanykey) {
+                            jumpUrl = 'http://mob.qichacha.com/app/companyIndex?unique=' + jcompanykey;
+                        } else if (jpersonid) {
+                            jumpUrl = 'http://mob.qichacha.com/app/bossIndex?unique=' + jpersonid + '&name=' + jpersonname;
+                        } else {
+                            jumpUrl = 'http://mob.qichacha.com/app';
+                        }
+                        //console.info(jumpUrl);return;
+                        window.location.href = jumpUrl;
+                    } else if (isAndroid) {
+                        // var jumpUrl;
+                        // if(jcompanykey){
+                        // 	jumpUrl = 'qichacha://com.android.icredit/c?id='+jcompanykey;
+                        // }else if(jpersonid){
+                        // 	jumpUrl = 'qichacha://com.android.icredit/p?id='+jpersonid;
+                        // }else{
+                        // 	jumpUrl = 'qichacha://com.android.icredit/';
+                        // }
+                        // window.location.href = jumpUrl;
+                        var hasApp = true, t = 1000;
+                        timer = setTimeout(function () {
+                            if (!hasApp) {
+                                window.location.href = "https://www.qcc.com/weixin?from=mobilewap";
+                            }
+                        }, 2000);
+                        var t1 = Date.now();
+                        setTimeout(function () {    //t的时间就是出发APP启动的时间，若APP启动了，再次返回页面时t2这行代码执行，hasApp即为true。反之若APP没有启动即为false
+                            var t2 = Date.now();
+                            hasApp = !(!t1 || t2 - t1 < t + 150);
+                        }, t);
+                    }
+                }
+            }
+
+            $(document).on('visibilitychange webkitvisibilitychange', function () {
+                var tag = document.hidden || document.webkitHidden;
+                if (tag) {
+                    clearTimeout(timer);
+                }
+            })
+
+            $(window).on('pagehide', function () {
+                clearTimeout(timer);
+            })
+
+
+        </script>
+        <div class="navtop clearfix"> <a class="logo" href="/"><img src="/material/theme/mobile/img/mlogo.png"></a> <a
+                rel="nofollow" class="userinf" href="/user_login">登录或注册</a> <a id="appBtn" class="app-btn"
+                onclick="openApp()" href="javascript:;">打开APP</a> </div>
+        <div class="content">
+            <div class="content-block">
+                <div class="company-name">中创智维科技有限公司
+                    <span class="ntag text-success">在业</span> </div>
+                <div class="oper-warp"> <a href="/pl_p001dfdd236f48f6aa81a4ec0ecea0bf.shtml"
+                        class="text-primary oper">陈忠林</a> <span class="oper-desc">
+                        法定代表人
+                    </span> </div>
+                <div class="contact-info-wrap"> <a href="tel://010-63983782" class="phone a-decoration">010-63983782</a>
+                    <a href="javascript:;" class="email a-decoration">chenzhonghui@sjgtw.com</a> </div>
+                <div class="address">
+                    北京市海淀区莲花池西路16号1号楼B216室
+                </div>
+            </div>
+            <div class="tab-content">
+                <div id="base" class="content-block">
+                    <div class="block-title">
+                        工商信息
+                        <div onclick="collapse(this)" class="darrow"></div>
+                    </div>
+                    <div class="basic-wrap">
+                        <table class="info-table">
+                            <tr>
+                                <td colspan="2">
+                                    <div class="pull-left">
+                                        <div class="d">法定代表人</div>
+                                        <div class="v"> <a href="/pl_p001dfdd236f48f6aa81a4ec0ecea0bf.shtml"
+                                                class="text-primary ">陈忠林</a> </div>
+                                    </div> <a class="pull-right text-touzi"
+                                        href="/pl_p001dfdd236f48f6aa81a4ec0ecea0bf.html">他关联 8 家企业</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d">成立日期</div>
+                                    <div class="v"> 2015-03-24 </div>
+                                </td>
+                                <td>
+                                    <div class="d">登记状态</div>
+                                    <div class="v">在业</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d">注册资本</div>
+                                    <div class="v"> 5000万元人民币 </div>
+                                </td>
+                                <td>
+                                    <div class="d">实缴资本</div>
+                                    <div class="v">- </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d">企业类型</div>
+                                    <div class="v">有限责任公司(自然人投资或控股)</div>
+                                </td>
+                                <td>
+                                    <div class="d">参保人数</div>
+                                    <div class="v">75</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="d">人员规模</div>
+                                    <div class="v">50-99人</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d">统一社会信用代码</div>
+                                    <div class="v">9111010833548318X4</div>
+                                </td>
+                                <td>
+                                    <div class="d">纳税人识别号</div>
+                                    <div class="v">9111010833548318X4</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d">工商注册号</div>
+                                    <div class="v">110108018793299</div>
+                                </td>
+                                <td>
+                                    <div class="d">组织机构代码</div>
+                                    <div class="v">33548318-X</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="d">进出口企业代码</div>
+                                    <div class="v">-</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="d">英文名</div>
+                                    <div class="v">Champion Choice (Beijing) Ecommerce Pty Ltd</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="d">曾用名</div>
+                                    <div class="v"> <span>诚品优选（北京）电子商务有限公司&nbsp;&nbsp;</span> </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="d">所属行业</div>
+                                    <div class="v">批发和零售业</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="d">经营范围</div>
+                                    <div class="v">
+                                        技术咨询、技术转让、技术开发、技术服务；产品设计；销售通讯设备、安全技术防范产品、金属矿石、建筑材料、金属材料、机械设备、家用电器、五金交电（不含电动自行车）、计算机、软件及辅助设备、日用品；机械设备租赁（不含汽车租赁）；市场调查；货物进出口、技术进出口、代理进出口；设计、制作、代理、发布广告；货运代理；生产电子产品、机械设备（仅限分支机构经营）；软件开发；数据处理（数据处理中的银行卡中心、PUE值在1.4以上的云计算数据中心除外）；计算机系统服务。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）。
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="d">经营方式</div>
+                                    <div class="v">-</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="d">企业地址</div>
+                                    <div class="v">北京市海淀区莲花池西路16号1号楼B216室</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d">营业期限</div>
+                                    <div class="v">2015-03-24 至 2035-03-23</div>
+                                </td>
+                                <td>
+                                    <div class="d">核准日期</div>
+                                    <div class="v">2020-03-25</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="d">登记机关</div>
+                                    <div class="v">北京市工商行政管理局海淀分局</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="partners" class="content-block">
+                    <div class="block-title">
+                        股东信息
+                        <span class="block-num">5</span>
+                        <div onclick="collapse(this)" class="darrow"></div>
+                    </div>
+                    <div>
+                        <table class="info-table">
+                            <tr>
+                                <td colspan="2">
+                                    <div class="cop-td">
+                                        <div class="head"> <img
+                                                src="https://co-image.qichacha.com/PersonImage/p001dfdd236f48f6aa81a4ec0ecea0bf.jpg"
+                                                onerror="this.src='https://co-image.qichacha.com/PersonImage/default.jpg'">
+                                        </div>
+                                        <div class="ct">
+                                            <div class="name"> <a href="/pl_p001dfdd236f48f6aa81a4ec0ecea0bf.shtml"
+                                                    class="text-primary cop">陈忠林</a> <a class="text-touzi pull-right"
+                                                    href="/pl_p001dfdd236f48f6aa81a4ec0ecea0bf.html">他关联8家企业</a> </div>
+                                            <div class="m-t-xs ptag"> <span
+                                                    class="ntag sm text-success m-r-xs tooltip-br">大股东</span> <span
+                                                    class="ntag sm text-warning m-r-xs click">实际控制人</span> <span
+                                                    class="ntag sm text-primary click">最终受益人</span> </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d">持股比例</div>
+                                    <div class="v">78.66%</div>
+                                </td>
+                                <td>
+                                    <div class="d">股东类型</div>
+                                    <div class="v">自然人股东</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d">认缴出资额</div>
+                                    <div class="v"> 3933万元<br /> </div>
+                                </td>
+                                <td>
+                                    <div class="d">认缴出资日期</div>
+                                    <div class="v"> 2028-03-10<br /> </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="info-table">
+                            <tr>
+                                <td colspan="2">
+                                    <div class="cop-td">
+                                        <div class="head"> <img
+                                                src="https://qccdata.qichacha.com/AutoImage/5aee7624e3ba1f662a5c6b9658fc042b.jpg"
+                                                onerror="this.src='https://co-image.qichacha.com/CompanyImage/default.jpg'">
+                                        </div>
+                                        <div class="ct">
+                                            <div class="name"> <a href="/firm_5aee7624e3ba1f662a5c6b9658fc042b.shtml"
+                                                    class="text-primary cop">宁波丰厚致远创业投资中心（有限合伙）</a> </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d">持股比例</div>
+                                    <div class="v">9.21%</div>
+                                </td>
+                                <td>
+                                    <div class="d">股东类型</div>
+                                    <div class="v">法人股东</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d">认缴出资额</div>
+                                    <div class="v"> 460.5万元<br /> </div>
+                                </td>
+                                <td>
+                                    <div class="d">认缴出资日期</div>
+                                    <div class="v"> 2016-03-10<br /> </div>
+                                </td>
+                            </tr>
+                        </table> <a id="appBtn2" href="javascript:;" onclick="openApp()" class="more-toapp">
+                            <div class="btn">打开APP，查看更多股东信息></div>
+                        </a>
+                    </div>
+                </div>
+                <div id="guquan" class="content-block">
+                    <div class="block-title">
+                        股权结构
+                        <div onclick="collapse(this)" class="darrow"></div>
+                    </div>
+                    <div>
+                        <div class="mb"><img src="/material/theme/mobile/img/mb_guquan.png"></div> <a id="appBtn2"
+                            href="javascript:;" onclick="openApp()" class="more-toapp">
+                            <div class="btn">打开APP，查看股权结构></div>
+                        </a>
+                    </div>
+                </div>
+                <div id="syr" class="content-block">
+                    <div class="block-title">
+                        最终受益人
+                        <span class="block-num">1</span>
+                        <div onclick="collapse(this)" class="darrow"></div>
+                    </div>
+                    <div>
+                        <div class="mb"><img src="/material/theme/mobile/img/mb_syr.png"></div> <a id="appBtn2"
+                            href="javascript:;" onclick="openApp()" class="more-toapp">
+                            <div class="btn">打开APP，查看最终受益人></div>
+                        </a>
+                    </div>
+                </div>
+                <div id="holdcolist" class="content-block">
+                    <div class="block-title">
+                        控股企业
+                        <span class="block-num">2</span>
+                        <div onclick="collapse(this)" class="darrow"></div>
+                    </div>
+                    <div>
+                        <div class="mb"><img src="/material/theme/mobile/img/mb_kg.png"></div> <a id="appBtn2"
+                            href="javascript:;" onclick="openApp()" class="more-toapp">
+                            <div class="btn">打开APP，查看控股企业></div>
+                        </a>
+                    </div>
+                </div>
+                <div id="employees" class="content-block">
+                    <div class="block-title">
+                        主要人员
+                        <span class="block-num">8</span>
+                        <div onclick="collapse(this)" class="darrow"></div>
+                    </div>
+                    <div>
+                        <table class="info-table">
+                            <tr>
+                                <td colspan="2">
+                                    <div class="cop-td">
+                                        <div class="head"> <img
+                                                src="https://co-image.qichacha.com/PersonImage/p001dfdd236f48f6aa81a4ec0ecea0bf.jpg"
+                                                onerror="this.src='https://co-image.qichacha.com/PersonImage/default.jpg'">
+                                        </div>
+                                        <div class="ct">
+                                            <div class="name"> <a href="/pl_p001dfdd236f48f6aa81a4ec0ecea0bf.shtml"
+                                                    class="text-primary ">陈忠林</a> </div>
+                                            <div class="vl">董事长,经理</div>
+                                        </div>
+                                        <div class="cf"> <a class="text-touzi"
+                                                href="/pl_p001dfdd236f48f6aa81a4ec0ecea0bf.html">他关联8家企业</a></div>
+                                    </div>
+                    </div>
+                    </td>
+                    </tr>
+                    </table>
+                    <table class="info-table">
+                        <tr>
+                            <td colspan="2">
+                                <div class="cop-td">
+                                    <div class="head"> <span class="letter color-5" first-letter="李"></span> </div>
+                                    <div class="ct">
+                                        <div class="name"> <a href="/pl_pc36f94ee4f8e5ce4c66eeb0c2f55b1e.shtml"
+                                                class="text-primary ">李帮贵</a> </div>
+                                        <div class="vl">董事</div>
+                                    </div>
+                                    <div class="cf"> <a class="text-touzi"
+                                            href="/pl_pc36f94ee4f8e5ce4c66eeb0c2f55b1e.html">他关联5家企业</a></div>
+                                </div>
+                </div>
+                </td>
+                </tr>
+                </table> <a id="appBtn2" href="javascript:;" onclick="openApp()" class="more-toapp">
+                    <div class="btn">打开APP，查看更多主要人员></div>
+                </a>
+            </div>
+        </div>
+        <div id="touzilist" class="content-block">
+            <div class="block-title">
+                对外投资
+                <span class="block-num">2</span>
+                <div onclick="collapse(this)" class="darrow"></div>
+            </div>
+            <div>
+                <table class="info-table">
+                    <tr>
+                        <td colspan="2">
+                            <div class="cop-td">
+                                <div class="head"> <img
+                                        src="https://qccdata.qichacha.com/AutoImage/90f633d12e9ace698f4e9e1ffb9f3f4b.jpg?x-oss-process=style/qcc_cmp">
+                                </div>
+                                <div class="ct">
+                                    <div class="name"> <a href="/firm_90f633d12e9ace698f4e9e1ffb9f3f4b.shtml"
+                                            class="text-primary ">诚品优选（北京）供应链管理有限公司</a> </div>
+                                    <div class="vl"></div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d">法定代表人</div>
+                            <div class="v"> <a href="/pl_p001dfdd236f48f6aa81a4ec0ecea0bf.shtml"
+                                    class="text-primary ">陈忠林</a> </div>
+                        </td>
+                        <td>
+                            <div class="d">注册资本</div>
+                            <div class="v"> 1000万元人民币 </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d">投资数额</div>
+                            <div class="v"> 1000万元人民币
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d">投资比例</div>
+                            <div class="v">100%
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <table class="info-table">
+                    <tr>
+                        <td colspan="2">
+                            <div class="cop-td">
+                                <div class="head"> <img
+                                        src="https://qccdata.qichacha.com/AutoImage/a7a77c58b5b6bd0fad19889605ce84fb.jpg?x-oss-process=style/qcc_cmp">
+                                </div>
+                                <div class="ct">
+                                    <div class="name"> <a href="/firm_a7a77c58b5b6bd0fad19889605ce84fb.shtml"
+                                            class="text-primary ">诚品优选（宁波）供应链有限公司</a> </div>
+                                    <div class="vl"></div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d">法定代表人</div>
+                            <div class="v"> <a href="/pl_p001dfdd236f48f6aa81a4ec0ecea0bf.shtml"
+                                    class="text-primary ">陈忠林</a> </div>
+                        </td>
+                        <td>
+                            <div class="d">注册资本</div>
+                            <div class="v"> 1000万元人民币 </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="d">投资数额</div>
+                            <div class="v"> 1000万元人民币
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d">投资比例</div>
+                            <div class="v">100%
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="reportlist" class="content-block">
+            <div class="block-title">
+                企业年报
+                <span class="block-num">4</span>
+                <div onclick="collapse(this)" class="darrow"></div>
+            </div>
+            <div> <a class="info-cell"
+                    href="/more_reportDetail?keyno=e74160e6ad4685a9a9ea61bdf1b96490&year=2018%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A">
+                    <div class="ls">
+                        <div class="tb">2018年度报告</div>
+                        <div class="row">
+                            <div class="d">2019-05-22</div>
+                        </div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell"
+                    href="/more_reportDetail?keyno=e74160e6ad4685a9a9ea61bdf1b96490&year=2017%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A">
+                    <div class="ls">
+                        <div class="tb">2017年度报告</div>
+                        <div class="row">
+                            <div class="d">2018-06-15</div>
+                        </div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a id="appBtn2" href="javascript:;" onclick="openApp()" class="more-toapp">
+                    <div class="btn">打开APP，查看更多企业年报></div>
+                </a> </div>
+        </div>
+        <div id="changeRecord" class="content-block">
+            <div class="block-title">
+                变更记录
+                <span class="block-num">17</span>
+                <div onclick="collapse(this)" class="darrow"></div>
+            </div>
+            <div>
+                <div class="change-wrap">
+                    <div class="change-item">
+                        <div class="change-head">
+                            <div class="change-title">经营范围
+                            </div>
+                            <div class="change-date">2020-03-25</div>
+                        </div>
+                        <div class="change-content">
+                            <div class="change-left">
+                                <div class="change-item-title">变更前</div>
+                                <div class="change-item-content">
+                                    <div class="ln">
+                                        1 : 技术咨询、技术转让、技术<em>推广</em>、技术服务
+                                    </div>
+                                    <div class="ln">
+                                        2 : 产品设计
+                                    </div>
+                                    <div class="ln">
+                                        3 :
+                                        销售金属矿石、建筑材料、金属材料、<em>化工产品(不含危险化学品及一类易制毒化学品)、</em>机械设备、家用电器、五金交电(不含电动自行车)、计算机、软件及辅助设备、日用品<em>、润滑油、</em>机械设备租赁(不含汽车租赁)
+                                    </div>
+                                    <div class="ln">
+                                        4 : <em>企业管理咨询</em> </div>
+                                    <div class="ln">
+                                        5 : <em>市场调查</em> </div>
+                                    <div class="ln">
+                                        6 : <em>经济贸易咨询</em> </div>
+                                    <div class="ln">
+                                        7 : 货物进出口、技术进出口、代理进出口
+                                    </div>
+                                    <div class="ln">
+                                        8 : 设计、制作、代理、发布广告
+                                    </div>
+                                    <div class="ln">
+                                        9 : 货运代理
+                                    </div>
+                                    <div class="ln">
+                                        10 : 生产电子产品、机械设备(仅限分支机构经营)
+                                    </div>
+                                    <div class="ln">
+                                        11 : 软件开发。企业依法自主选择经营项目,开展经营活动
+                                    </div>
+                                    <div class="ln">
+                                        12 : 依法须经批准的项目,经相关部门批准后依批准的内容开展经营活动
+                                    </div>
+                                    <div class="ln">
+                                        13 : 不得从事本市产业政策禁止和限制类项目的经营活动。
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="change-right">
+                                <div class="change-item-title">变更后</div>
+                                <div class="change-item-content">
+                                    <div class="ln">
+                                        1 : 技术咨询、技术转让、技术<em>开发</em>、技术服务
+                                    </div>
+                                    <div class="ln">
+                                        2 : 产品设计
+                                    </div>
+                                    <div class="ln">
+                                        3 :
+                                        销售<em>通讯设备、安全技术防范产品、</em>金属矿石、建筑材料、金属材料、机械设备、家用电器、五金交电(不含电动自行车)、计算机、软件及辅助设备、日用品
+                                    </div>
+                                    <div class="ln">
+                                        4 : 机械设备租赁(不含汽车租赁)
+                                    </div>
+                                    <div class="ln">
+                                        5 : <em>市场调查</em> </div>
+                                    <div class="ln">
+                                        6 : 货物进出口、技术进出口、代理进出口
+                                    </div>
+                                    <div class="ln">
+                                        7 : 设计、制作、代理、发布广告
+                                    </div>
+                                    <div class="ln">
+                                        8 : 货运代理
+                                    </div>
+                                    <div class="ln">
+                                        9 : 生产电子产品、机械设备(仅限分支机构经营)
+                                    </div>
+                                    <div class="ln">
+                                        10 : 软件开发
+                                    </div>
+                                    <div class="ln">
+                                        11 : <em>数据处理(数据处理中的银行卡中心、PUE值在1.4以上的云计算数据中心除外)</em> </div>
+                                    <div class="ln">
+                                        12 : <em>计算机系统服务</em>。企业依法自主选择经营项目,开展经营活动
+                                    </div>
+                                    <div class="ln">
+                                        13 : 依法须经批准的项目,经相关部门批准后依批准的内容开展经营活动
+                                    </div>
+                                    <div class="ln">
+                                        14 : 不得从事本市产业政策禁止和限制类项目的经营活动。
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="change-wrap">
+                    <div class="change-item">
+                        <div class="change-head">
+                            <div class="change-title">企业名称
+                            </div>
+                            <div class="change-date">2019-05-10</div>
+                        </div>
+                        <div class="change-content">
+                            <div class="change-left">
+                                <div class="change-item-title">变更前</div>
+                                <div class="change-item-content">
+                                    <div class="ln">
+                                        1 : <em>诚品优选(北京)电子商务</em>有限公司
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="change-right">
+                                <div class="change-item-title">变更后</div>
+                                <div class="change-item-content">
+                                    <div class="ln">
+                                        1 : <em>中创智维科技</em>有限公司
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <a id="appBtn2" href="javascript:;" onclick="openApp()" class="more-toapp">
+                    <div class="btn">打开APP，查看更多变更记录></div>
+                </a>
+            </div>
+        </div>
+        <div id="zhixinglist" class="content-block"> </div>
+        <div id="shixinlist" class="content-block"> </div>
+        <div id="wenshulist" class="content-block"> </div>
+        <div id="gonggaolist" class="content-block"> </div>
+        <div id="noticelist" class="content-block"> </div>
+        <div id="pledgelist" class="content-block"> </div>
+        <div id="spledgelist" class="content-block"> </div>
+        <div id="permissionlist" class="content-block">
+            <div class="block-title">
+                行政许可-信用中国
+                <span class="block-num">2</span>
+                <div onclick="collapse(this)" class="darrow"></div>
+            </div>
+            <div> <a class="info-cell" href="/more_permissionDetail?id=7ab61553b39bf87e134a00755f7035df_7">
+                    <div class="row">
+                        <div class="d">决定文书号：</div>
+                        <div class="v">9111010833548318X4</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">许可内容：</div>
+                        <div class="v">营业执照</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">许可机关：</div>
+                        <div class="v">北京市工商行政管理局</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">决定日期：</div>
+                        <div class="v">2018-07-30</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell" href="/more_permissionDetail?id=719106fa81e3b0c6fd1fcde76b3c7fcf_7">
+                    <div class="row">
+                        <div class="d">决定文书号：</div>
+                        <div class="v">9111010833548318X4</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">许可内容：</div>
+                        <div class="v">营业执照</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">许可机关：</div>
+                        <div class="v">北京市工商行政管理局</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">决定日期：</div>
+                        <div class="v">2018-07-30</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> </div>
+        </div>
+        <div id="licenslist" class="content-block"> </div>
+        <div id="taxcreditlist" class="content-block"> </div>
+        <div id="tenderlist" class="content-block">
+            <div class="block-title">
+                招投标
+                <span class="block-num">3</span>
+                <div onclick="collapse(this)" class="darrow"></div>
+            </div>
+            <div> <a class="info-cell" href="/tenderDetail_4af6a5d5f718bba398c8da01fa031922.html">
+                    <div class="tb">视频会议系统设备采购项目询价结果公示</div>
+                    <div class="row">
+                        <div class="d">类型：</div>
+                        <div class="v">招标结果/成交</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">发布日期：</div>
+                        <div class="v">2020-04-03</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">所在地区：</div>
+                        <div class="v">北京市</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell" href="/tenderDetail_3a45e3277827ea11ecfe9e4cea9cf04f.html">
+                    <div class="tb">[询价]视频会议系统设备采购项目 询价结果公示</div>
+                    <div class="row">
+                        <div class="d">类型：</div>
+                        <div class="v">项目公告</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">发布日期：</div>
+                        <div class="v">2020-04-03</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">所在地区：</div>
+                        <div class="v">-</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a id="appBtn2" href="javascript:;" onclick="openApp()" class="more-toapp">
+                    <div class="btn">打开APP，查看更多招投标></div>
+                </a> </div>
+        </div>
+        <div id="joblist" class="content-block">
+            <div class="block-title">
+                招聘
+                <span class="block-num">104</span>
+                <div onclick="collapse(this)" class="darrow"></div>
+            </div>
+            <div> <a class="info-cell" href="/jobdetail_28d74842620ee1ac29de04ef730e8c75.html">
+                    <div class="tb">采购总监 <div class="pull-right"
+                            style="color: #999;font-weight: normal;font-size: 13px;">15000-25000</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">发布日期：</div>
+                        <div class="v">2018-11-29</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">工作经验：</div>
+                        <div class="v">5-10年</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">办公地点：</div>
+                        <div class="v">北京</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell" href="/jobdetail_230cd6906ecd47c9fbec7b677e18fd9e.html">
+                    <div class="tb">储备干部 <div class="pull-right"
+                            style="color: #999;font-weight: normal;font-size: 13px;">5000-10000</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">发布日期：</div>
+                        <div class="v">2018-11-29</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">工作经验：</div>
+                        <div class="v">1年以内</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">办公地点：</div>
+                        <div class="v">北京</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a id="appBtn2" href="javascript:;" onclick="openApp()" class="more-toapp">
+                    <div class="btn">打开APP，查看更多招聘信息></div>
+                </a> </div>
+        </div>
+        <div id="ciaxlist" class="content-block">
+            <div class="block-title">
+                进出口信用
+                <span class="block-num">1</span>
+                <div onclick="collapse(this)" class="darrow"></div>
+            </div>
+            <div> <a class="info-cell" href="/ciaxDetail_e74160e6ad4685a9a9ea61bdf1b96490.html">
+                    <div class="row">
+                        <div class="d">注册海关：</div>
+                        <div class="v">北京关区</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">经营类别：</div>
+                        <div class="v">进出口收发货人</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">注册日期：</div>
+                        <div class="v">
+                            2017-12-15
+                        </div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> </div>
+        </div>
+        <div id="wechatlist" class="content-block"> </div>
+        <div id="weibolist" class="content-block">
+            <div class="block-title">
+                微博
+                <span class="block-num">1</span>
+                <div onclick="collapse(this)" class="darrow"></div>
+            </div>
+            <div> <a class="info-cell" target="_blank" href="https://weibo.com/sjgtwkx">
+                    <div class="img-row">
+                        <div class="img"> <img
+                                src="https://img.qichacha.com/Weibo/logo/8157ee04f5f69b905ba1a75a16f15c29.jpg"
+                                onerror="this.src='/material/theme/chacha/cms/v2/images/no_image.png'"> </div>
+                        <div class="ct">
+                            <div class="name">
+                                世界高铁网
+                            </div>
+                        </div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> </div>
+        </div>
+        <div id="newslist" class="content-block">
+            <div class="block-title">
+                新闻舆情
+                <span class="block-num">34</span>
+                <div onclick="collapse(this)" class="darrow"></div>
+            </div>
+            <div> <a class="info-cell"
+                    href="http://share.qichacha.com/pro/app_12.3.2/news-template/index.html?id=17d25538d6a56d6d698995bb31887864">
+                    <div class="tb">走入中创科技，探寻智能铁路 副总裁阎震先生专访</div>
+                    <div class="row">
+                        <div class="d">来自：</div>
+                        <div class="v">中华网</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">发布时间：</div>
+                        <div class="v">2019-11-22</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell"
+                    href="http://share.qichacha.com/pro/app_12.3.2/news-template/index.html?id=af46322b6928e459174a9ececef0167a">
+                    <div class="tb">MODERN RAILWAYS 2019 盛大开幕</div>
+                    <div class="row">
+                        <div class="d">来自：</div>
+                        <div class="v">网易号</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">发布时间：</div>
+                        <div class="v">2019-11-21</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a id="appBtn2" href="javascript:;" onclick="openApp()" class="more-toapp">
+                    <div class="btn">打开APP，查看更多新闻舆情></div>
+                </a> </div>
+        </div>
+        <div id="yblist" class="content-block">
+            <div class="block-title">
+                公告研报
+                <span class="block-num">4</span>
+                <div onclick="collapse(this)" class="darrow"></div>
+            </div>
+            <div> <a class="info-cell"
+                    href="http://qccdata.qichacha.com/ReportData/PDF/4bb540e4d14d3b9bc70f84dd04b832e0.pdf"
+                    target="_blank">
+                    <div class="tb">2018年非公开发行A股股票预案(五次修订稿)</div>
+                    <div class="row">
+                        <div class="d">时间：</div>
+                        <div class="v">2020-02-22</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell"
+                    href="http://qccdata.qichacha.com/ReportData/PDF/926ae60eea122f03180e49a9d6b99c39.pdf"
+                    target="_blank">
+                    <div class="tb">2018年非公开发行A股股票预案(二次修订稿)</div>
+                    <div class="row">
+                        <div class="d">时间：</div>
+                        <div class="v">2018-12-25</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a id="appBtn2" href="javascript:;" onclick="openApp()" class="more-toapp">
+                    <div class="btn">打开APP，查看更多公告研报></div>
+                </a> </div>
+        </div>
+        <div id="spotchecklist" class="content-block"> </div>
+        <div id="supplierlist" class="content-block"> </div>
+        <div id="customerlist" class="content-block"> </div>
+        <div id="shangbiaolist" class="content-block">
+            <div class="block-title">
+                商标信息
+                <span class="block-num">43</span>
+                <div onclick="collapse(this)" class="darrow"></div>
+            </div>
+            <div> <a class="info-cell" href="/brandDetail_b41d12981bfb1608d0ebbdff31d4cfba.html">
+                    <div class="fimg-row">
+                        <div class="img"> <img
+                                src="https://tm-image.qichacha.com/8d9ef5a5c73c99debbe87c88ee652350.jpg?x-oss-process=style/small"
+                                onerror="this.src='/material/theme/chacha/cms/v2/images/no_image.png'"> </div>
+                        <div class="ct">
+                            <div class="tb"></div>
+                            <div class="row">
+                                <div class="d">注册号：</div>
+                                <div class="v">43848752</div>
+                            </div>
+                            <div class="row">
+                                <div class="d">申请日期：</div>
+                                <div class="v">2020-01-16</div>
+                            </div>
+                            <div class="row">
+                                <div class="d">商标类型：</div>
+                                <div class="v">42 - 设计研究</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell" href="/brandDetail_1471bf854c38c290350184d9879198b5.html">
+                    <div class="fimg-row">
+                        <div class="img"> <img
+                                src="https://tm-image.qichacha.com/f6c3f260d7be2705c09727f17978bba8.jpg?x-oss-process=style/small"
+                                onerror="this.src='/material/theme/chacha/cms/v2/images/no_image.png'"> </div>
+                        <div class="ct">
+                            <div class="tb">CATENARY EYES</div>
+                            <div class="row">
+                                <div class="d">注册号：</div>
+                                <div class="v">43859332</div>
+                            </div>
+                            <div class="row">
+                                <div class="d">申请日期：</div>
+                                <div class="v">2020-01-16</div>
+                            </div>
+                            <div class="row">
+                                <div class="d">商标类型：</div>
+                                <div class="v">9 - 科学仪器</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a id="appBtn2" href="javascript:;" onclick="openApp()" class="more-toapp">
+                    <div class="btn">打开APP，查看更多商标信息></div>
+                </a> </div>
+        </div>
+        <div id="zhuanlilist" class="content-block">
+            <div class="block-title">
+                专利信息
+                <span class="block-num">11</span>
+                <div onclick="collapse(this)" class="darrow"></div>
+            </div>
+            <div> <a class="info-cell" href="/zhuanliDetail_d9254a80d9c8ee164eeba6887ea9a21f.html">
+                    <div class="tb">用于物资管理的业务数据处理方法及装置</div>
+                    <div class="row">
+                        <div class="d">法律状态：</div>
+                        <div class="v">实质审查的生效</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">申请日期：</div>
+                        <div class="v">2017-04-25</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">公布日期：</div>
+                        <div class="v">2017-12-01</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">授权公布号：</div>
+                        <div class="v">CN107423873A</div>
+                        <div class="ntag text-primary">发明公布</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell" href="/zhuanliDetail_07760eb8bf9e8e8621fa4b8183b02ce9.html">
+                    <div class="tb">物资管理方法及物资管理装置</div>
+                    <div class="row">
+                        <div class="d">法律状态：</div>
+                        <div class="v">实质审查的生效</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">申请日期：</div>
+                        <div class="v">2017-04-25</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">公布日期：</div>
+                        <div class="v">2017-12-01</div>
+                    </div>
+                    <div class="row">
+                        <div class="d">授权公布号：</div>
+                        <div class="v">CN107423872A</div>
+                        <div class="ntag text-primary">发明公布</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a id="appBtn2" href="javascript:;" onclick="openApp()" class="more-toapp">
+                    <div class="btn">打开APP，查看更多专利信息></div>
+                </a> </div>
+        </div>
+        <div id="samelist" class="content-block">
+            <div class="block-title">
+                同地区同行业企业
+                <div onclick="collapse(this)" class="darrow"></div>
+            </div>
+            <div> <a class="info-cell" href="/firm_7ed260c0e7993dc2713592d52c654fb4">
+                    <div class="img-row">
+                        <div class="img"> <img
+                                src="https://qccdata.qichacha.com/AutoImage/7ed260c0e7993dc2713592d52c654fb4.jpg"
+                                onerror="this.src='https://co-image.qichacha.com/CompanyImage/default.jpg'"> </div>
+                        <div class="ct">
+                            <div class="name">
+                                北京和富盛商贸有限公司
+                                <object class="v"> <a href="/pl_p1e7a368c929d89fe467d947342bdcb2.shtml"
+                                        class="text-primary ">黄江涛</a> </object> </div>
+                        </div>
+                        <div class="ntag text-success">在业</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell" href="/firm_7ec3323575ddb6a36a0cf807f5494e29">
+                    <div class="img-row">
+                        <div class="img"> <img
+                                src="https://qccdata.qichacha.com/AutoImage/7ec3323575ddb6a36a0cf807f5494e29.jpg"
+                                onerror="this.src='https://co-image.qichacha.com/CompanyImage/default.jpg'"> </div>
+                        <div class="ct">
+                            <div class="name">
+                                北京蓝程网络科技有限公司
+                                <object class="v"> <a href="/pl_prce785ec6ac921fd9cfa266a7936e92.shtml"
+                                        class="text-primary ">张明阳</a> </object> </div>
+                        </div>
+                        <div class="ntag text-success">在业</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell" href="/firm_7f014d73ded4dcbd9f491bc5edbfea6e">
+                    <div class="img-row">
+                        <div class="img"> <img
+                                src="https://qccdata.qichacha.com/AutoImage/7f014d73ded4dcbd9f491bc5edbfea6e.jpg"
+                                onerror="this.src='https://co-image.qichacha.com/CompanyImage/default.jpg'"> </div>
+                        <div class="ct">
+                            <div class="name">
+                                北京固瑞斯贸易有限公司
+                                <object class="v"> <a href="/pl_p532e63a00f95299632b97b35034f8e3.shtml"
+                                        class="text-primary ">杨吉普</a> </object> </div>
+                        </div>
+                        <div class="ntag text-success">在业</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell" href="/firm_7f01135e0b0ccb3c35b649676d9e042d">
+                    <div class="img-row">
+                        <div class="img"> <img
+                                src="https://qccdata.qichacha.com/AutoImage/7f01135e0b0ccb3c35b649676d9e042d.jpg"
+                                onerror="this.src='https://co-image.qichacha.com/CompanyImage/default.jpg'"> </div>
+                        <div class="ct">
+                            <div class="name">
+                                北京融昌诚信商贸有限责任公司
+                                <object class="v"> <a href="/pl_pc38326ecacc9ddc6c2181fd1c9e04d1.shtml"
+                                        class="text-primary ">孙静</a> </object> </div>
+                        </div>
+                        <div class="ntag text-success">在业</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell" href="/firm_8530a955f47fd725ec8e705eecf79721">
+                    <div class="img-row">
+                        <div class="img"> <img
+                                src="https://co-image.qichacha.com/CompanyImage/8530a955f47fd725ec8e705eecf79721.jpg"
+                                onerror="this.src='https://co-image.qichacha.com/CompanyImage/default.jpg'"> </div>
+                        <div class="ct">
+                            <div class="name">
+                                北京品鲜猫电子商务有限公司
+                                <object class="v"> <a href="/pl_pb46877d5c684aa4a9f797da2e47dbae.shtml"
+                                        class="text-primary ">乔永坤</a> </object> </div>
+                        </div>
+                        <div class="ntag text-success">在业</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell" href="/firm_7ebe997da9fc27b0343610d4970ab7ec">
+                    <div class="img-row">
+                        <div class="img"> <img
+                                src="https://qccdata.qichacha.com/AutoImage/7ebe997da9fc27b0343610d4970ab7ec.jpg"
+                                onerror="this.src='https://co-image.qichacha.com/CompanyImage/default.jpg'"> </div>
+                        <div class="ct">
+                            <div class="name">
+                                北京鲲鹏美厨厨房设备有限公司
+                                <object class="v"> <a href="/pl_pa701da622ed0f302be0ec8f79088d64.shtml"
+                                        class="text-primary ">李锋</a> </object> </div>
+                        </div>
+                        <div class="ntag text-success">在业</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell" href="/firm_7f1df93f03955767cac46d2d9b96f124">
+                    <div class="img-row">
+                        <div class="img"> <img
+                                src="https://qccdata.qichacha.com/AutoImage/7f1df93f03955767cac46d2d9b96f124.jpg"
+                                onerror="this.src='https://co-image.qichacha.com/CompanyImage/default.jpg'"> </div>
+                        <div class="ct">
+                            <div class="name">
+                                北京凯德福国际商贸有限公司
+                                <object class="v"> <a href="/pl_pba28a6d5b86111ced29283bd571afaa.shtml"
+                                        class="text-primary ">寇小双</a> </object> </div>
+                        </div>
+                        <div class="ntag text-success">在业</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell" href="/firm_7eb9bb2c2e2b1f9a0d245040bfed503e">
+                    <div class="img-row">
+                        <div class="img"> <img
+                                src="https://qccdata.qichacha.com/AutoImage/7eb9bb2c2e2b1f9a0d245040bfed503e.jpg"
+                                onerror="this.src='https://co-image.qichacha.com/CompanyImage/default.jpg'"> </div>
+                        <div class="ct">
+                            <div class="name">
+                                北京华夏泽军商贸中心
+                                <object class="v"> <a href="/pl_pc2111b3b78d1fd298096ca386280dfe.shtml"
+                                        class="text-primary ">郑克非</a> </object> </div>
+                        </div>
+                        <div class="ntag text-success">在业</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell" href="/firm_ecba94afde1c5c0c6c3e181f3ccdab37">
+                    <div class="img-row">
+                        <div class="img"> <img
+                                src="https://qccdata.qichacha.com/AutoImage/ecba94afde1c5c0c6c3e181f3ccdab37.jpg"
+                                onerror="this.src='https://co-image.qichacha.com/CompanyImage/default.jpg'"> </div>
+                        <div class="ct">
+                            <div class="name">
+                                中农信合电子商务（北京）有限公司
+                                <object class="v"> <a href="/pl_p199ff58fb1c3523fa9ae19ef5f68a6b.shtml"
+                                        class="text-primary ">孙纪锋</a> </object> </div>
+                        </div>
+                        <div class="ntag text-success">在业</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell" href="/firm_7eb9ce25b234be3040e1249031a01694">
+                    <div class="img-row">
+                        <div class="img"> <img
+                                src="https://qccdata.qichacha.com/AutoImage/7eb9ce25b234be3040e1249031a01694.jpg"
+                                onerror="this.src='https://co-image.qichacha.com/CompanyImage/default.jpg'"> </div>
+                        <div class="ct">
+                            <div class="name">
+                                北京浩润盈海商贸有限公司
+                                <object class="v"> <a href="/pl_p5d83d836239e886df1c7f4b8dc69e25.shtml"
+                                        class="text-primary ">袁海福</a> </object> </div>
+                        </div>
+                        <div class="ntag text-success">在业</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> <a class="info-cell" href="/firm_7ebb58309a7c61ff44509346d0ee59d8">
+                    <div class="img-row">
+                        <div class="img"> <img
+                                src="https://qccdata.qichacha.com/AutoImage/7ebb58309a7c61ff44509346d0ee59d8.jpg"
+                                onerror="this.src='https://co-image.qichacha.com/CompanyImage/default.jpg'"> </div>
+                        <div class="ct">
+                            <div class="name">
+                                北京成成明珠商贸有限公司
+                                <object class="v"> <a href="/pl_pf72995d400438562c0f8b8a24e60c8f.shtml"
+                                        class="text-primary ">丁春毅</a> </object> </div>
+                        </div>
+                        <div class="ntag text-success">在业</div>
+                    </div>
+                    <div class="darrow"></div>
+                </a> </div>
+        </div>
+        <div class="content-block" style="display: none;">
+            <div class="module-row border-bottom">
+                <div class="module-col-4 border-right"> <span class="module-num">0</span>
+                    <div class="module-img"> <img src="/material/theme/mobile/img/wxa-service/btn_branch_off.png"
+                            title="暂无信息"> </div>
+                    <div class="module-name">分支机构</div>
+                </div> <a href="/company_dInvestment?companyName=中创智维科技有限公司">
+                    <div class="module-col-4 border-right"> <span class="module-num">2</span>
+                        <div class="module-img"> <img src="/material/theme/mobile/img/wxa-service/btn_invest.png">
+                        </div>
+                        <div class="module-name">对外投资</div>
+                    </div>
+                </a> <a href="/company_dReport?unique=e74160e6ad4685a9a9ea61bdf1b96490&companyName=中创智维科技有限公司">
+                    <div class="module-col-4 border-right"> <span class="module-num">4</span>
+                        <div class="module-img"> <img src="/material/theme/mobile/img/wxa-service/btn_annual.png">
+                        </div>
+                        <div class="module-name">企业年报</div>
+                    </div>
+                </a>
+                <div class="module-col-4"> <span class="module-num">0</span>
+                    <div class="module-img"> <img src="/material/theme/mobile/img/wxa-service/btn_dishonest_off.png"
+                            title="暂无信息"> </div>
+                    <div class="module-name">失信信息</div>
+                </div>
+            </div>
+            <div class="module-row">
+                <div class="module-col-4 border-right"> <span class="module-num">0</span>
+                    <div class="module-img"> <img src="/material/theme/mobile/img/wxa-service/btn_executed_off.png"
+                            title="暂无信息"> </div>
+                    <div class="module-name">被执行人</div>
+                </div> <a href="/company_dShangBiao?companyName=中创智维科技有限公司">
+                    <div class="module-col-4 border-right"> <span class="module-num">43</span>
+                        <div class="module-img"> <img src="/material/theme/mobile/img/wxa-service/btn_brand.png"> </div>
+                        <div class="module-name">商标信息</div>
+                    </div>
+                </a> <a href="/company_dPatent?companyName=中创智维科技有限公司">
+                    <div class="module-col-4 border-right"> <span class="module-num">11</span>
+                        <div class="module-img"> <img src="/material/theme/mobile/img/wxa-service/btn_patent.png">
+                        </div>
+                        <div class="module-name">专利信息</div>
+                    </div>
+                </a>
+                <div class="module-col-4" onclick=""> <span class="module-num">0</span>
+                    <div class="module-img"> <img src="/material/theme/mobile/img/wxa-service/btn_judge_off.png"
+                            title="暂无信息"> </div>
+                    <div class="module-name">裁判文书</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-bottom">
+        <div class="bottom-title">更多数据请下载企查查APP</div>
+        <div class="bottom-content">
+            用户可以在APP查看更多企业维度，还可以查看企业图谱、股权结构、疑似关系等深度数据。
+        </div>
+        <div class="bottom-btn-wrap"> <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.android.icredit#opened"
+                class="download-btn">下载企查查APP</a> </div>
+    </div>
+    </div>
+    </div>
+    <style type="text/css">
+        .pagetop-btn,
+        .catalog-btn {
+            position: fixed;
+            bottom: 50px;
+            right: 25px;
+            z-index: 80;
+            border-radius: 50%;
+            padding: 6px 0px;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+            height: 44px;
+            width: 44px;
+            color: #666;
+            font-size: 10px;
+            text-align: center;
+            line-height: 1;
+            background: #fff;
+        }
+
+        .catalog-btn {
+            background: #128bed;
+            bottom: 110px;
+            color: #fff;
+        }
+
+        .catalog-btn>img {
+            width: 18px;
+        }
+
+        .pagetop-btn>img {
+            width: 18px;
+        }
+
+        .catalog {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0);
+            transition: background 0.3s;
+            display: none;
+        }
+
+        .catalog-list {
+            float: right;
+            width: 60%;
+            background: #fff;
+            height: 100%;
+            overflow-y: auto;
+            position: relative;
+            -webkit-overflow-scrolling: touch;
+            transition: transform 0.3s;
+            transform: translateX(100%);
+        }
+
+        .catalog.opened {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .catalog.opened .catalog-list {
+            transform: translateX(0);
+        }
+
+        .catalog-list .title {
+            padding: 28px 0 15px 20px;
+            font-weight: 500;
+            position: relative;
+            font-family: PingFangSC-Medium;
+            font-size: 17px;
+            color: #333333;
+        }
+
+        .catalog-list .title:after {
+            content: '';
+            height: 1px;
+            width: 100%;
+            position: absolute;
+            border-bottom: 1px solid #eee;
+            transform: scaleY(0.5);
+            bottom: 0;
+            left: 0;
+        }
+
+        .catalog-bl {
+            position: relative;
+            padding: 15px 20px;
+            overflow: hidden;
+            height: 52px;
+        }
+
+        .catalog-bl:after {
+            content: '';
+            height: 1px;
+            width: 100%;
+            position: absolute;
+            border-bottom: 1px solid #eee;
+            transform: scaleY(0.5);
+            bottom: 0;
+            left: 0;
+        }
+
+        .catalog-bl.collapse {
+            height: auto;
+        }
+
+        .catalog-bl .darrow {
+            top: 25px;
+            right: 20px;
+            transition: transform .1s;
+        }
+
+        .catalog-bl.collapse .darrow {
+            transform: rotate(135deg);
+        }
+
+        .catalog-bl .bl-title {
+            font-size: 16px;
+            color: #333333;
+            line-height: 22px;
+
+        }
+
+        .catalog-bl ul {
+            padding-top: 10px;
+        }
+
+        .catalog-bl ul>li {
+            list-style-type: none;
+        }
+
+        .catalog-bl ul>li:last-child .item {
+            padding-bottom: 0px;
+        }
+
+        .catalog-bl .item {
+            display: block;
+            padding: 5px 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .catalog-bl .item.disable {
+            color: #ccc;
+        }
+    </style>
+    <div class="nav-toolbar">
+        <div class="catalog-btn" onclick="openCatalog()"> <img src="/material/theme/mobile/img/catalog_btn.png">
+            <p>目录</p>
+        </div>
+        <div class="pagetop-btn" onclick="pageTop()"> <img src="/material/theme/mobile/img/pagetop_btn.png">
+            <p>置顶</p>
+        </div>
+    </div>
+    <div id="catalog" class="catalog">
+        <div id="catalogList" class="catalog-list">
+            <div class="title">目录</div>
+            <div class="catalog-content">
+                <div class="catalog-bl">
+                    <div class="bl-title" onclick="catalogCollapse(this,event)">
+                        基本信息
+                        <div class="darrow"></div>
+                    </div>
+                    <ul class="bl-list">
+                        <li><a class="item" onclick="catalogPos(event, 'base')">工商信息</a></li>
+                        <li><a class="item " onclick="catalogPos(event, 'partners')">股东信息</a></li>
+                        <li><a class="item " onclick="catalogPos(event, 'guquan')">股权结构</a></li>
+                        <li><a class="item " onclick="catalogPos(event, 'syr')">最终受益人</a></li>
+                        <li><a class="item " onclick="catalogPos(event, 'holdcolist')">控股企业</a></li>
+                        <li><a class="item " onclick="catalogPos(event, 'employees')">主要人员</a></li>
+                        <li><a class="item " onclick="catalogPos(event, 'touzilist')">对外投资</a></li>
+                        <li><a class="item disable" onclick="catalogPos(event, 'cwjx')">财务简析</a></li>
+                        <li><a class="item " onclick="catalogPos(event, 'changeRecord')">变更记录</a></li>
+                        <li><a class="item " onclick="catalogPos(event, 'reportlist')">企业年报</a></li>
+                    </ul>
+                </div>
+                <div class="catalog-bl">
+                    <div class="bl-title" onclick="catalogCollapse(this,event)">
+                        法律诉讼
+                        <div class="darrow"></div>
+                    </div>
+                    <ul class="bl-list">
+                        <li><a class="item disable" onclick="catalogPos(event, 'zhixinglist')">被执行人</a></li>
+                        <li><a class="item disable" onclick="catalogPos(event, 'shixinlist')">失信信息</a></li>
+                        <li><a class="item disable" onclick="catalogPos(event, 'wenshulist')">裁判文书</a></li>
+                        <li><a class="item disable" onclick="catalogPos(event, 'gonggaolist')">法院公告</a></li>
+                        <li><a class="item disable" onclick="catalogPos(event, 'noticelist')">开庭公告</a></li>
+                    </ul>
+                </div>
+                <div class="catalog-bl">
+                    <div class="bl-title" onclick="catalogCollapse(this,event)">
+                        经营风险
+                        <div class="darrow"></div>
+                    </div>
+                    <ul class="bl-list">
+                        <li><a class="item disable" onclick="catalogPos(event, 'pledgelist')">股权出质</a></li>
+                        <li><a class="item disable" onclick="catalogPos(event, 'spledgelist')">股权质押</a></li>
+                    </ul>
+                </div>
+                <div class="catalog-bl">
+                    <div class="bl-title" onclick="catalogCollapse(this,event)">
+                        经营状况
+                        <div class="darrow"></div>
+                    </div>
+                    <ul class="bl-list">
+                        <li><a class="item " onclick="catalogPos(event, 'permissionlist')">行政许可-信用中国</a></li>
+                        <li><a class="item disable" onclick="catalogPos(event, 'licenslist')">行政许可-工商局</a></li>
+                        <li><a class="item disable" onclick="catalogPos(event, 'taxcreditlist')">税务信用</a></li>
+                        <li><a class="item " onclick="catalogPos(event, 'tenderlist')">招投标</a></li>
+                        <li><a class="item " onclick="catalogPos(event, 'joblist')">招聘</a></li>
+                        <li><a class="item " onclick="catalogPos(event, 'ciaxlist')">进出口信用</a></li>
+                        <li><a class="item disable" onclick="catalogPos(event, 'wechatlist')">微信公众号</a></li>
+                        <li><a class="item " onclick="catalogPos(event, 'weibolist')">微博</a></li>
+                        <li><a class="item " onclick="catalogPos(event, 'newslist')">新闻舆情</a></li>
+                        <li><a class="item " onclick="catalogPos(event, 'yblist')">公告研报</a></li>
+                        <li><a class="item disable" onclick="catalogPos(event, 'spotchecklist')">抽查检查</a></li>
+                        <li><a class="item disable" onclick="catalogPos(event, 'supplierlist')">供应商</a></li>
+                        <li><a class="item disable" onclick="catalogPos(event, 'customerlist')">客户</a></li>
+                    </ul>
+                </div>
+                <div class="catalog-bl">
+                    <div class="bl-title" onclick="catalogCollapse(this,event)">
+                        知识产权
+                        <div class="darrow"></div>
+                    </div>
+                    <ul class="bl-list">
+                        <li><a class="item " onclick="catalogPos(event, 'shangbiaolist')">商标信息</a></li>
+                        <li><a class="item " onclick="catalogPos(event, 'zhuanlilist')">专利信息</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function pageTop() {
+            $('.content').scrollTo(0, {
+                duration: 500,
+                offset: 0
+            });
+        }
+        function openCatalog() {
+            $('#catalog').show();
+            setTimeout(function () {
+                $('#catalog').addClass('opened')
+            }, 100);
+        }
+        $('#catalog').click(function (e) {
+            closeCatalog();
+        })
+        function closeCatalog() {
+            $('#catalog').removeClass('opened');
+            setTimeout(function () {
+                $('#catalog').hide();
+            }, 300);
+        }
+        function catalogCollapse(dom, e) {
+            e.stopPropagation();
+            var $bl = $(dom).parent();
+            if ($bl.hasClass('collapse')) {
+                $(dom).parent().removeClass('collapse');
+            } else {
+                $(dom).parent().addClass('collapse');
+            }
+        }
+        var firstCatalogPos = true;
+        function catalogPos(e, pos) {
+            if ($(e.target).hasClass('disable')) {
+                return;
+            }
+            //e.stopPropagation();
+            $('.content').scrollTo('#' + pos, {
+                duration: 500,
+                offset: 0
+            });
+            if (firstCatalogPos) {
+                firstCatalogPos = false;
+                setTimeout(function () {
+                    $('.content').scrollTo('#' + pos, {
+                        duration: 100,
+                        offset: 0
+                    });
+                }, 500);
+
+            }
+
+        }
+    </script>
+    <script type="text/javascript">
+        function collapse(dom) {
+            var collapseDiv = $(dom).parent().next();
+            if (!collapseDiv.is(':hidden')) {
+                collapseDiv.hide();
+                $(dom).css('transform', 'rotate(45deg)');
+                $(dom).css('margin-top', '-5px');
+            } else {
+                collapseDiv.show();
+                $(dom).css('transform', 'rotate(135deg)');
+                $(dom).css('margin-top', '-7px');
+            }
+        }
+
+        scollFix();
+        function scollFix() {
+            var scrollDom = $('.content')[0];
+            hasChangeFix = false;
+            scrollDom.onscroll = function (e) {
+                if (!hasChangeFix) {
+                    if (scrollDom.scrollTop > 185) {
+                        $('#fixtab').addClass('fixtab');
+                        $('.tab-content').css('margin-top', '60px');
+                        hasChangeFix = true;
+                    }
+                } else {
+
+                    if (scrollDom.scrollTop < 180) {
+                        $('#fixtab').removeClass('fixtab');
+                        $('.tab-content').css('margin-top', '0px');
+                        hasChangeFix = false;
+                    }
+                }
+                $('.tab').removeClass('tab-active');
+                if (scrollDom.scrollTop > $('#base')[0].offsetTop - 50 && scrollDom.scrollTop <= $('#partners')[0].offsetTop - 50) {
+                    $('#baseTab').addClass('tab-active');
+                } else if (scrollDom.scrollTop > $('#partners')[0].offsetTop - 50 && scrollDom.scrollTop <= $('#employees')[0].offsetTop - 50) {
+                    $('#partnersTab').addClass('tab-active');
+                } else if (scrollDom.scrollTop > $('#employees')[0].offsetTop - 50 && scrollDom.scrollTop <= $('#changeRecord')[0].offsetTop - 50) {
+                    $('#employeesTab').addClass('tab-active');
+                } else if (scrollDom.scrollTop > $('#changeRecord')[0].offsetTop - 50) {
+                    $('#changeRecordTab').addClass('tab-active');
+                }
+
+            }
+        }
+    </script>
+    <div class="download-pop" id="download-pop">
+        <div class="mask"></div>
+        <div class="download-dialog">
+            <div class="pop-bg"> <img src="/material/theme/mobile/img/pop_bg.png?t=2"> </div>
+            <div class="ft"> <a href="https://www.qcc.com/weixin_jump?from=mobilewap"
+                    class="text-primary dialog-btn">下载</a> </div>
+        </div>
+    </div>
+    <div style="display:none;">
+        <script src="https://s4.cnzz.com/z_stat.php?id=1254842228&web_id=1254842228" language="JavaScript"></script>
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                if ((document.location.host.indexOf("qcc") > -1)) {
+                    hm.src = "https://hm.baidu.com/hm.js?78f134d5a9ac3f92524914d0247e70cb";
+                } else {
+                    hm.src = "https://hm.baidu.com/hm.js?3456bee468c83cc63fb5147f119f1075";
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    </div>
+    <script type="text/javascript">
+        function popDownload() {
+            $('#download-pop').show();
+            $('#download-pop .mask').click(function () {
+                $('#download-pop').hide();
+            })
+        }
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</body>
+
+</html>

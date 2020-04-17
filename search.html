@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta name="author" content="leslie">
+    <title>中创智维科技有限公司的搜索结果 - 企查查</title>
+    <meta name="keywords"
+        content="企查查,查公司,查企业,查老板,查关系,查老赖,企业查询,公司查询,工商查询,企业征信查询,企业信息查询,企业工商信息查询,企业信用查询,裁判文书查询,失信信息查询,被执行人查询,企业信用信息查询系统,启信宝,天眼查">
+    <meta name="description" content="企查查是官方备案的企业征信机构，为您提供全国企业信息查询，包括企业工商信息查询，信用信息查询，经营状况查询等相关信息。查企业，查老板，查关系就上企查查!">
+    <link rel="icon" href="/material/theme/mobile/img/favicon.png">
+    <link rel="stylesheet" href="/material/theme/mobile/css/common.css?time=1586845981" type="text/css" />
+    <script src="/material/theme/mobile/js/jquery.min.js"></script>
+    <script src="/material/theme/mobile/js/vue.min.js"></script>
+    <script src="/material/theme/mobile/js/jquery.scrollTo.js?t=1"></script>
+    <script src="/material/theme/mobile/js/bootstrap.js"></script>
+    <script src="/material/theme/mobile/js/custom.js?time=1586845981"></script>
+    <script type="text/javascript">
+        window.zhuge = window.zhuge || []; window.zhuge.methods = "_init debug identify track trackLink trackForm page".split(" ");
+        window.zhuge.factory = function (b) {
+            return function () {
+                var a = Array.prototype.slice.call(arguments); a.unshift(b);
+                window.zhuge.push(a); return window.zhuge;
+            }
+        }; for (var i = 0; i < window.zhuge.methods.length; i++) {
+            var key = window.zhuge.methods[i]; window.zhuge[key] = window.zhuge.factory(key);
+        } window.zhuge.load = function (b, x) {
+            if (!document.getElementById("zhuge-js")) {
+                var a = document.createElement("script"); var verDate = new Date();
+                var verStr = verDate.getFullYear().toString() + verDate.getMonth().toString() + verDate.getDate().toString();
+                a.type = "text/javascript"; a.id = "zhuge-js"; a.async = !0; a.src = (location.protocol == 'http:' ? "http://tongji.qichacha.com/zhuge.js" : 'https://tongji.qichacha.com/zhuge.js');
+                a.onerror = function () { window.zhuge.identify = window.zhuge.track = function (ename, props, callback) { if (callback && Object.prototype.toString.call(callback) === '[object Function]') callback(); }; };
+                var c = document.getElementsByTagName("script")[0]; c.parentNode.insertBefore(a, c); window.zhuge._init(b, x)
+            }
+        };
+        window.zhuge.load('de1d1a35bfa24ce29bbf2c7eb17e6c4f', {
+            visualizer: false
+        });
+    </script>
+</head>
+
+<body>
+    <style type="text/css">
+        .navtop {
+            width: 100%;
+            height: 52px;
+            background: #fff;
+        }
+
+        .navtop .logo {
+            width: 108.5px;
+            margin-left: 15px;
+            margin-top: 8px;
+            line-height: 20px;
+            float: left;
+
+        }
+
+        .navtop .logo>img {
+            width: 100%;
+        }
+
+        .navtop a {
+            float: right;
+            text-decoration: none;
+            line-height: 32px;
+            margin-top: 10px;
+
+        }
+
+        .navtop .userinf {
+            color: #128bed;
+            margin-right: 15px;
+        }
+
+        .navtop .app-btn {
+            width: 74px;
+            background: #128bed;
+            color: #fff;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 14px;
+            margin-right: 15px;
+        }
+
+        .navtop .app-btn:after {
+            content: " ";
+            width: 1px;
+            background: #eee;
+            height: 24px;
+            position: absolute;
+            margin-left: 21px;
+            margin-top: 4px;
+
+        }
+
+        .navtop .logo-zx {
+            width: 88px;
+            margin-top: 8px;
+            margin-left: 8px;
+        }
+    </style>
+    <script type="text/javascript">
+
+        var jcompanykey;
+
+        var jpersonid;
+        var jpersonname;
+        var jindex;
+
+        var isWeixn;
+        var isAndroid;
+        var isiOS;
+        var timer;
+
+
+
+
+        $(function () {
+            var u = navigator.userAgent, app = navigator.appVersion;
+            isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器 
+            isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端   
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                isWeixn = true;
+            } else {
+                isWeixn = false;
+            }
+
+            if (isAndroid) {
+                var jumpUrl;
+                if (jcompanykey) {
+                    jumpUrl = 'qichacha://com.android.icredit/c?id=' + jcompanykey;
+                } else if (jpersonid) {
+                    jumpUrl = 'qichacha://com.android.icredit/p?id=' + jpersonid + '&name=' + jpersonname;
+                } else {
+                    jumpUrl = 'qichacha://com.android.icredit/';
+                }
+                $('#appBtn').attr('href', jumpUrl);
+                $('#appBtn2').attr('href', jumpUrl);
+            }
+            firstJump();
+        })
+
+        function firstJump() {
+            if (jcompanykey) {
+                if (isAndroid) {
+                    location.href = 'qichacha://com.android.icredit/c?id=' + jcompanykey;
+                } else if (isiOS) {
+                    //location.href='http://mob.qichacha.com/app/company.html?back=1&unique='+jcompanykey;
+                }
+            } else if (jpersonid) {
+                if (isAndroid) {
+                    location.href = 'qichacha://com.android.icredit/p?id=' + jpersonid + '&name=' + jpersonname;
+                } else if (isiOS) {
+                    //location.href='http://mob.qichacha.com/app/boss.html?back=1&personID='+jpersonid+'&name='+jpersonname;
+                }
+            } else if (jindex) {
+                if (isAndroid) {
+                    location.href = 'qichacha://com.android.icredit/';
+                } else if (isiOS) {
+                    location.href = 'qichacha://';
+                }
+            }
+        }
+
+        function openApp() {
+            if (isWeixn) {
+                alert('请从浏览器中打开');
+            } else {
+                if (isiOS) {
+                    var jumpUrl;
+                    if (jcompanykey) {
+                        jumpUrl = 'http://mob.qichacha.com/app/companyIndex?unique=' + jcompanykey;
+                    } else if (jpersonid) {
+                        jumpUrl = 'http://mob.qichacha.com/app/bossIndex?unique=' + jpersonid + '&name=' + jpersonname;
+                    } else {
+                        jumpUrl = 'http://mob.qichacha.com/app';
+                    }
+                    //console.info(jumpUrl);return;
+                    window.location.href = jumpUrl;
+                } else if (isAndroid) {
+                    // var jumpUrl;
+                    // if(jcompanykey){
+                    // 	jumpUrl = 'qichacha://com.android.icredit/c?id='+jcompanykey;
+                    // }else if(jpersonid){
+                    // 	jumpUrl = 'qichacha://com.android.icredit/p?id='+jpersonid;
+                    // }else{
+                    // 	jumpUrl = 'qichacha://com.android.icredit/';
+                    // }
+                    // window.location.href = jumpUrl;
+                    var hasApp = true, t = 1000;
+                    timer = setTimeout(function () {
+                        if (!hasApp) {
+                            window.location.href = "https://www.qcc.com/weixin?from=mobilewap";
+                        }
+                    }, 2000);
+                    var t1 = Date.now();
+                    setTimeout(function () {    //t的时间就是出发APP启动的时间，若APP启动了，再次返回页面时t2这行代码执行，hasApp即为true。反之若APP没有启动即为false
+                        var t2 = Date.now();
+                        hasApp = !(!t1 || t2 - t1 < t + 150);
+                    }, t);
+                }
+            }
+        }
+
+        $(document).on('visibilitychange webkitvisibilitychange', function () {
+            var tag = document.hidden || document.webkitHidden;
+            if (tag) {
+                clearTimeout(timer);
+            }
+        })
+
+        $(window).on('pagehide', function () {
+            clearTimeout(timer);
+        })
+
+
+    </script>
+    <div class="navtop clearfix"> <a class="logo" href="/"><img src="/material/theme/mobile/img/mlogo.png"></a> <a
+            rel="nofollow" class="userinf" href="/user_login">登录或注册</a> <a id="appBtn" class="app-btn"
+            onclick="openApp()" href="javascript:;">打开APP</a> </div>
+    <link rel="stylesheet" href="/material/theme/mobile/css/search_list.css?time=1586845981" type="text/css" />
+    <div class="search-bar"> <a class="search-bar-back" href="javascript: history.back(0);"> <i></i> </a>
+        <form action="/search">
+            <div class="search-bar-input"> <input type="text" value="中创智维科技有限公司" class="searchkey"
+                    placeholder="请输入企业名称、人名、品牌、地址等" id="searchkey" name="key" required="required" autocomplete="off">
+                <input type="submit" class="searchbtn" value="搜索" /> <a href="javascript:;" onclick="clearSearch()"
+                    id="searchClear" class="search-clear"></a> </div>
+        </form>
+    </div>
+    <div class="list-wrap">
+        <div class="list-tip">
+            搜索到 <span class="text-danger">
+                10
+            </span> 个公司
+        </div> <a href="/firm_e74160e6ad4685a9a9ea61bdf1b96490.shtml" class="a-decoration">
+            <div class="list-item">
+                <div class="list-item-top">
+                    <div class="list-item-logo"><img
+                            src="https://co-image.qichacha.com/CompanyImage/e74160e6ad4685a9a9ea61bdf1b96490.jpg?x-oss-process=style/qcc_cmp">
+                    </div>
+                    <div class="list-item-status status-normal">在业</div>
+                    <div class="list-item-name"> <em>中创智维科技有限公司</em> </div>
+                </div>
+                <div class="list-item-middle">
+                    <div class="col-3">
+                        <div class="col-subtitle">
+                            法定代表人
+                        </div> <object class="col-title"> <a href="/pl_p001dfdd236f48f6aa81a4ec0ecea0bf.shtml"
+                                class="text-primary ">陈忠林</a> </object>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">注册资金</div>
+                        <div class="col-title"> 5000万元人民币 </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">成立日期</div>
+                        <div class="col-title">2015-03-24</div>
+                    </div>
+                </div>
+            </div>
+        </a> <a href="/firm_93c423baffacf8e8a4148a36a251a8e4.shtml" class="a-decoration">
+            <div class="list-item">
+                <div class="list-item-top">
+                    <div class="list-item-logo"><img
+                            src="https://qccdata.qichacha.com/AutoImage/93c423baffacf8e8a4148a36a251a8e4.jpg?x-oss-process=style/qcc_cmp">
+                    </div>
+                    <div class="list-item-status status-normal">在业</div>
+                    <div class="list-item-name">
+                        北京<em>中维智创科技有限公司</em> </div>
+                </div>
+                <div class="list-item-middle">
+                    <div class="col-3">
+                        <div class="col-subtitle">
+                            法定代表人
+                        </div> <object class="col-title"> <a href="/pl_pr9b52b8896c9e2f6fdd8f66d08af1b8.shtml"
+                                class="text-primary ">卢井然</a> </object>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">注册资金</div>
+                        <div class="col-title"> 100万元人民币 </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">成立日期</div>
+                        <div class="col-title">2019-07-04</div>
+                    </div>
+                </div>
+            </div>
+        </a> <a href="/firm_9768078f5bf9de559fbaa640adbd4e9a.shtml" class="a-decoration">
+            <div class="list-item">
+                <div class="list-item-top">
+                    <div class="list-item-logo"><img
+                            src="https://qccdata.qichacha.com/AutoImage/9768078f5bf9de559fbaa640adbd4e9a.jpg?x-oss-process=style/qcc_cmp">
+                    </div>
+                    <div class="list-item-status status-normal">存续</div>
+                    <div class="list-item-name">
+                        苏州<em>中</em>瑞<em>智</em><em>创</em>三<em>维</em><em>科</em><em>技</em>股份<em>有</em><em>限</em><em>公</em><em>司</em>
+                    </div>
+                </div>
+                <div class="list-item-middle">
+                    <div class="col-3">
+                        <div class="col-subtitle">
+                            法定代表人
+                        </div> <object class="col-title"> <a href="/pl_pb3bc7362a0cad882f2c5090aacb72b9.shtml"
+                                class="text-primary ">周宏志</a> </object>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">注册资金</div>
+                        <div class="col-title"> 2000万元人民币 </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">成立日期</div>
+                        <div class="col-title">2011-01-27</div>
+                    </div>
+                </div>
+                <div class="list-item-bottom">
+                    <div class="list-item-highlight">
+                        网址：苏州中瑞智创三维<em>科技</em>股份<em>有限公司</em>官方网站
+                    </div>
+                </div>
+            </div>
+        </a> <a href="/firm_a3e64d90596cfeac4b83a4e4dac2686d.shtml" class="a-decoration">
+            <div class="list-item">
+                <div class="list-item-top">
+                    <div class="list-item-logo"><img
+                            src="https://co-image.qichacha.com/CompanyImage/a3e64d90596cfeac4b83a4e4dac2686d.jpg?x-oss-process=style/qcc_cmp">
+                    </div>
+                    <div class="list-item-status status-normal">在业</div>
+                    <div class="list-item-name">
+                        <em>创</em><em>维</em>群欣<em>智</em>控<em>科</em><em>技</em>（<em>中</em>山）<em>有</em><em>限</em><em>公</em><em>司</em>
+                    </div>
+                </div>
+                <div class="list-item-middle">
+                    <div class="col-3">
+                        <div class="col-subtitle">
+                            法定代表人
+                        </div> <object class="col-title"> <a href="/pl_pe6be4082a445bdc29f814effb512e87.shtml"
+                                class="text-primary ">梅殊</a> </object>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">注册资金</div>
+                        <div class="col-title"> 333.3333万元人民币 </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">成立日期</div>
+                        <div class="col-title">2014-12-16</div>
+                    </div>
+                </div>
+                <div class="list-item-bottom">
+                    <div class="list-item-highlight">
+                        投资人：深圳市创维群欣安防<em>科技</em>股份<em>有限公司</em> </div>
+                </div>
+            </div>
+        </a> <a href="/firm_890102ff99276e17b20ddef4d32d2ed7.shtml" class="a-decoration">
+            <div class="list-item">
+                <div class="list-item-top">
+                    <div class="list-item-logo"><img
+                            src="https://co-image.qichacha.com/CompanyImage/890102ff99276e17b20ddef4d32d2ed7.jpg?x-oss-process=style/qcc_cmp">
+                    </div>
+                    <div class="list-item-status status-normal">在业</div>
+                    <div class="list-item-name">
+                        广州瀚<em>维</em><em>中</em><em>创</em><em>智</em>能<em>科</em><em>技</em><em>有</em><em>限</em><em>公</em><em>司</em>
+                    </div>
+                </div>
+                <div class="list-item-middle">
+                    <div class="col-3">
+                        <div class="col-subtitle">
+                            法定代表人
+                        </div> <object class="col-title"> <a href="/pl_p02a21a6c194961a5931a0c06a792639.shtml"
+                                class="text-primary ">郑德文</a> </object>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">注册资金</div>
+                        <div class="col-title"> 100万元人民币 </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">成立日期</div>
+                        <div class="col-title">2010-02-04</div>
+                    </div>
+                </div>
+                <div class="list-item-bottom">
+                    <div class="list-item-highlight">
+                        网址：广州晓聆通讯<em>科技有限公司</em> </div>
+                </div>
+            </div>
+        </a> <a href="/firm_812c9d5226751d56973199ef1a4fe166.shtml" class="a-decoration">
+            <div class="list-item">
+                <div class="list-item-top">
+                    <div class="list-item-logo"><img
+                            src="https://qccdata.qichacha.com/AutoImage/812c9d5226751d56973199ef1a4fe166.jpg?x-oss-process=style/qcc_cmp">
+                    </div>
+                    <div class="list-item-status status-normal">存续</div>
+                    <div class="list-item-name">
+                        福州<em>中</em><em>维</em><em>智</em><em>创</em>信息<em>科</em><em>技</em><em>有</em><em>限</em><em>公</em><em>司</em>
+                    </div>
+                </div>
+                <div class="list-item-middle">
+                    <div class="col-3">
+                        <div class="col-subtitle">
+                            法定代表人
+                        </div> <object class="col-title"> <a href="/pl_pd8d86ea44f845f4db2fc37a64add8bc.shtml"
+                                class="text-primary ">张君罕</a> </object>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">注册资金</div>
+                        <div class="col-title"> 100万元人民币 </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">成立日期</div>
+                        <div class="col-title">2018-11-28</div>
+                    </div>
+                </div>
+                <div class="list-item-bottom">
+                    <div class="list-item-highlight">
+                        经营范围：信息技术咨询服务;其他未列明信息技术服务;其他<em>科技</em>推广服务业;智能控制系统集成;其他信息系统集成服务;
+                    </div>
+                </div>
+            </div>
+        </a> <a href="/firm_638c0bca5c5b0f3a87ee641d94c74031.shtml" class="a-decoration">
+            <div class="list-item">
+                <div class="list-item-top">
+                    <div class="list-item-logo"><img
+                            src="https://qccdata.qichacha.com/AutoImage/638c0bca5c5b0f3a87ee641d94c74031.jpg?x-oss-process=style/qcc_cmp">
+                    </div>
+                    <div class="list-item-status status-normal">存续</div>
+                    <div class="list-item-name">
+                        山西<em>中维</em>汇<em>创智</em>能<em>科技有限公司</em> </div>
+                </div>
+                <div class="list-item-middle">
+                    <div class="col-3">
+                        <div class="col-subtitle">
+                            法定代表人
+                        </div> <object class="col-title"> <a href="/pl_pr075d049708cb3bf29371fcf815c700.shtml"
+                                class="text-primary ">苏维</a> </object>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">注册资金</div>
+                        <div class="col-title"> 100万元人民币 </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">成立日期</div>
+                        <div class="col-title">2019-04-16</div>
+                    </div>
+                </div>
+            </div>
+        </a> <a href="/firm_e3bdec8f8b47154736efc734d7beffb8.shtml" class="a-decoration">
+            <div class="list-item">
+                <div class="list-item-top">
+                    <div class="list-item-logo"><img
+                            src="https://qccdata.qichacha.com/AutoImage/e3bdec8f8b47154736efc734d7beffb8.jpg?x-oss-process=style/qcc_cmp">
+                    </div>
+                    <div class="list-item-status status-normal">存续</div>
+                    <div class="list-item-name">
+                        武汉中维创科智能电子<em>科技有限公司</em> </div>
+                </div>
+                <div class="list-item-middle">
+                    <div class="col-3">
+                        <div class="col-subtitle">
+                            法定代表人
+                        </div> <object class="col-title"> <a href="/pl_p4ec6f66d978b6f2aa4a289f7b7b0ea9.shtml"
+                                class="text-primary ">冯国</a> </object>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">注册资金</div>
+                        <div class="col-title"> 101万元人民币 </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">成立日期</div>
+                        <div class="col-title">2014-06-25</div>
+                    </div>
+                </div>
+            </div>
+        </a> <a href="/firm_gea8d6f8f66d485f36871b0be92d2d7e.shtml" class="a-decoration">
+            <div class="list-item">
+                <div class="list-item-top">
+                    <div class="list-item-logo"><img
+                            src="https://qccdata.qichacha.com/AutoImage/gea8d6f8f66d485f36871b0be92d2d7e.jpg?x-oss-process=style/qcc_cmp">
+                    </div>
+                    <div class="list-item-status status-normal">暂无</div>
+                    <div class="list-item-name">
+                        苏州<em>中</em>瑞<em>智创</em>三<em>维科技</em>股份<em>有限公司</em>工会委员会
+                    </div>
+                </div>
+                <div class="list-item-middle">
+                    <div class="col-3">
+                        <div class="col-subtitle">
+                            法定代表人
+                        </div> <object class="col-title"> <a href="/pl_prd2f69ee04e9bd33c692a8b395520c8.shtml"
+                                class="text-primary ">金春花</a> </object>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">注册资金</div>
+                        <div class="col-title"> —</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">成立日期</div>
+                        <div class="col-title">2015-10-20</div>
+                    </div>
+                </div>
+            </div>
+        </a> <a href="/firm_17c88800afb6dd845152815d77a9e210.shtml" class="a-decoration">
+            <div class="list-item">
+                <div class="list-item-top">
+                    <div class="list-item-logo"><img
+                            src="https://qccdata.qichacha.com/AutoImage/17c88800afb6dd845152815d77a9e210.jpg?x-oss-process=style/qcc_cmp">
+                    </div>
+                    <div class="list-item-status status-exception">注销</div>
+                    <div class="list-item-name">
+                        鞍山市<em>中智创维科技有限公司</em> </div>
+                </div>
+                <div class="list-item-middle">
+                    <div class="col-3">
+                        <div class="col-subtitle">
+                            法定代表人
+                        </div> <object class="col-title"> <a href="/pl_p8fa280d17db3da919337db78a2fae93.shtml"
+                                class="text-primary ">徐春芹</a> </object>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">注册资金</div>
+                        <div class="col-title"> 100万元人民币 </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="col-subtitle">成立日期</div>
+                        <div class="col-title">2016-08-29</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript" src="/material/theme/mobile/js/search.js?time=1586845981"></script>
+    <div class="download-pop" id="download-pop">
+        <div class="mask"></div>
+        <div class="download-dialog">
+            <div class="pop-bg"> <img src="/material/theme/mobile/img/pop_bg.png?t=2"> </div>
+            <div class="ft"> <a href="https://www.qcc.com/weixin_jump?from=mobilewap"
+                    class="text-primary dialog-btn">下载</a> </div>
+        </div>
+    </div>
+    <div style="display:none;">
+        <script src="https://s4.cnzz.com/z_stat.php?id=1254842228&web_id=1254842228" language="JavaScript"></script>
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                if ((document.location.host.indexOf("qcc") > -1)) {
+                    hm.src = "https://hm.baidu.com/hm.js?78f134d5a9ac3f92524914d0247e70cb";
+                } else {
+                    hm.src = "https://hm.baidu.com/hm.js?3456bee468c83cc63fb5147f119f1075";
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    </div>
+    <script type="text/javascript">
+        function popDownload() {
+            $('#download-pop').show();
+            $('#download-pop .mask').click(function () {
+                $('#download-pop').hide();
+            })
+        }
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</body>
+
+</html>
